@@ -1,0 +1,9 @@
+a) The age of the user (in years)                                    - Type: integer (int16_t)
+b) Whether the user wants color or not                               - Type: Boolean
+c) pi (3.14159265)                                                   - Type: Constant Double
+d) The number of pages in a textbook                                 - Type: integer (int16_t)
+e) The price of a stock in dollars (to 2 decimal places)             - Type: double
+f) How many times you’ve blinked since you were born                 - Type: integer (int32_t)
+(note: answer is in the millions)
+g) A user selecting an option from a menu by letter                  - Type: char
+h) The year someone was born                                         - Type: integer (int16_t)
