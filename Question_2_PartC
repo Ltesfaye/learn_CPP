@@ -1,0 +1,47 @@
+
+# include <iostream>
+using namespace std;
+
+double readDouble(){
+    printf("enter a number: ");
+    double x;
+    std::cin >>x;
+    return x;
+}
+
+char readChar(){
+    printf("enter a opperation: ");
+    char x;
+    std::cin >>x;
+    return x;
+}
+
+void print_result(double q, double w, char opperation){
+    
+    if (opperation == '+'){
+        std::cout << q << " + " << w << " equals " << q+w << "\n";
+    }
+    else if (opperation == '-'){
+        std::cout << q << " - " << w << " equals " << q-w << "\n";
+    }
+    else if (opperation  == '*'){
+        std::cout << q << " * " << w << " equals " << q*w << "\n";
+    }
+    else if ( opperation == '/'){
+        std::cout << q << " / " << w << " equals " << q/w << "\n";
+    }
+}
+
+int main(){
+    
+    double q;
+    q = readDouble();
+    double w;
+    w = readDouble();
+    char opperation;
+    opperation = readChar();
+    
+    print_result(q,w,opperation);
+   
+
+}
