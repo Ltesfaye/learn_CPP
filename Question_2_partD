@@ -1,0 +1,44 @@
+# include <iostream>
+using namespace std;
+
+double readDouble(){
+    printf("Enter the initial height of the tower in meters: ");
+    double x;
+    std::cin >>x;
+    return x;
+}
+
+void print_result(int q, double height){
+    
+    if (height > 0){
+    
+        std::cout << "At " << q << " seconds, the ball is at height: " << height << "\n";
+    }
+    else {
+        std::cout << "At " << q << " seconds, the ball on the ground \n";
+    }
+}
+
+double current_height(int time, double height){
+    const double gravity {9.8};
+    
+    return height - (gravity*time*time*0.5);
+}
+
+int main(){
+    
+    double q;
+    q = readDouble();
+    int time;
+    time = 0;
+    double height;
+    
+    while ((current_height(time, q))>0){
+         height = current_height(time, q);
+         print_result(time, height);
+         time = time +1;
+    }
+    height = current_height(time, q);
+    print_result(time, height);
+   
+}
