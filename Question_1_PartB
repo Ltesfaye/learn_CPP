@@ -1,0 +1,15 @@
+# include <iostream>
+using namespace std;
+
+int readNumber(){
+    printf("enter a number : ");
+    int x;
+    std::cin >>x;
+    return x;
+}
+
+void writeAnswer(int y){
+    printf ("The answer to the question is: %d\n", y);
+    
+}
+
