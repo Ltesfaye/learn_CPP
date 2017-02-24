@@ -1,0 +1,71 @@
+Comprehensive reading quiz:
+
+//
+//  main.cpp
+//  LearnCPP
+
+//  Created by Leul Tesfaye on 2/20/17.
+//  Copyright © 2017 Leul Tesfaye. All rights reserved.
+
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+enum class Monstertype
+{
+    // creates the different types of monsters as a enum
+    ogre,
+    dragon,
+    orc,
+    slime,
+    GiantSpider
+    
+};
+
+
+struct Monster
+{
+    
+    // declares the vital variables of the monster such as name, type and health
+    
+    Monstertype type;
+    std::string Name;
+    int health;
+};
+
+// returns the type of monster we are trying print out
+std::string getMonstertype(Monster m)
+{
+    if (m.type == Monstertype::ogre)
+        return "Ogre";
+    if (m.type == Monstertype::dragon)
+        return "Dragon";
+    if (m.type == Monstertype::orc)
+        return "Orc";
+    if (m.type == Monstertype::GiantSpider)
+        return "Giant Spider";
+    if (m.type == Monstertype::slime)
+        return "Slime";
+    return NULL;
+   }
+
+
+void printMonster(Monster m)
+{
+    // print our the info of the passed monster
+    cout << "This " << getMonstertype(m) << " is named " << m.Name << " and has " << m.health << " health.\n";
+}
+
+int main()
+{
+    Monster test_uno = { Monstertype::ogre, "Torg", 145 };
+    Monster test_dos= { Monstertype::slime, "Blurp", 23 };
+    
+    printMonster(test_uno);
+    printMonster(test_dos);
+    
+    return 0;
+}
