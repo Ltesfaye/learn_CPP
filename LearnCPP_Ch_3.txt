@@ -1,0 +1,38 @@
+Comprehensive Quiz Answers:
+
+1
+
+a) True 
+b) False 
+c) True
+d) the expression evaluates to 4 since the condition is true.
+
+
+2
+
+a) 1
+b) 4
+
+
+3
+
+a) 13
+b) 46
+
+
+4
+
+a) 1111
+b) 110101
+
+5
+
+a)  We are passing in a value while changing the same value simultaneously. This causes a confusion for the function since it is unclear weather we are evaluating foo with the same mutated value of x or the original value of x and changed value of x. 
+
+b)  It could either round it up to -3 or down to -4. 
+c)  It could either evaluate as 1 or -1. 
+d)  The expression would evaluate false cause of a floating point error. 
+e)  This would cause a zero division error which would either crash your program or create a runtime error. 
+
+
+
