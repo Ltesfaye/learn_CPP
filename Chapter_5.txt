@@ -1,0 +1,140 @@
+
+(QUESTION 1)
+
+// header defintion
+
+#ifndef Header_h
+#define Header_h
+
+namespace myConstants
+{
+    const double gravity(9.8); // in meters/second squared
+}
+
+#endif /* Header_h */
+
+
+
+In your main code file:
+
+# include <math.h>
+#include <iostream>
+#include "Header.h"
+
+// gets initial height from user and returns it
+double getInitialHeight()
+{
+    std::cout << "Enter the height of the tower in meters: ";
+    double initialHeight;
+    std::cin >> initialHeight;
+    return initialHeight;
+}
+
+// Returns height from ground after "seconds" seconds
+double calculateHeight(double initialHeight, int seconds)
+{
+    // Using formula: [ s = u * t + (a * t^2) / 2 ], here u(initial velocity) = 0
+    double distanceFallen = (myConstants::gravity * seconds * seconds) / 2;
+    double currentHeight = initialHeight - distanceFallen;
+    
+    return currentHeight;
+}
+
+// Prints height every second till ball has reached the ground
+void printHeight(double height, int seconds)
+{
+    if (height > 0.0)
+    {
+        std::cout << "At " << seconds << " seconds, the ball is at height:\t" << height <<
+        " meters\n";
+    }
+    else
+        std::cout << "At " << seconds << " seconds, the ball is on the ground.\n";
+}
+
+void calculateAndPrintHeight(double initialHeight, int seconds)
+{
+    double height = calculateHeight(initialHeight, seconds);
+    printHeight(height, seconds);
+}
+
+int getTimeRequired(double d){
+    // using the formula x= x0 + (v0)t + 0.5* gravityt^2
+    // this calculates the time required for the entered height to hit the ground and rounds it up.
+    int required_time;
+    required_time = ceil(sqrt((2*d)/myConstants::gravity));
+    return required_time;
+    
+}
+
+int main()
+{
+    const double initialHeight = getInitialHeight();
+    const int time = getTimeRequired(initialHeight);
+    // once we know both the height and required time we can use the simple for loop bellow to print out the required output.
+    
+    for (int i =0; i<= time; i++){
+        calculateAndPrintHeight(initialHeight, i);
+    }
+   
+    
+    return 0;
+}
+
+(QUESTION 2)
+
+// This method is my adaptation of the game.
+
+#include <cstdlib>
+#include <iostream>
+
+void IsRightValue(int right_val) {
+	int billy;
+	std::cout << "Enter your first guess:";
+	std::cin >> billy;
+	for (int i = 0; i<7; i++) {
+		int attempt_num = i + 1;
+		std::cout << "Attempt Number " << attempt_num ;
+
+		if (billy == right_val) {
+			std::cout << " ~ You're right " << right_val << " is the right number!!!! \n";
+			break;
+		}
+		else if (billy > right_val) {
+			std::cout << " ~ Your guess is higher than actual value\n";
+		}
+		else if (billy <right_val){
+			std::cout << " ~ Your guess is lower than actual value\n";
+		}
+		if (i != 6) {
+			std::cout << " \n Enter your next attempt : ";
+			std::cin >> billy;
+		}
+
+	}
+
+}
+
+int main() {
+	int b;
+	b = 1;
+	while (b == 1) {
+		int random_num = rand() % 100 + 1;
+		IsRightValue(random_num);
+		int c = 1;
+		while (c == 1) {
+			char another_round;
+			std::cout << "\n Do you want to play another game ? (enter Y or N)\n => ";
+			std::cin >> another_round;
+			if (another_round == 'Y') {
+				break;
+			}
+			else if (another_round == 'N')
+			c = 0;
+			b = 0;
+			
+		}
+	}
+
+	return 0;
+}
