@@ -1,0 +1,92 @@
+
+(QUESTION 1)
+
+// a)
+
+double max(double a, double b){
+	if (a == b){
+		return NULL;
+	}
+	else if (a>b){
+		return a;
+	}
+    return b; 
+}
+
+// b)
+
+void swap (int &x, int &y);
+
+// c)
+
+int& getLargestElement(int *array, int length);
+
+
+
+(QUESTION 2)
+
+
+// a)
+The fact that the function returns a reference to a local variable which will not exist once the function is done. 
+
+// b)
+
+This is a never ending loop.
+
+// c)
+This will cause an error since both methods have the same input and name and thus can't be an overloaded method and the program will not know what to run when divide is called. 
+
+// d)
+The array is to large to be saved in stack which will cause a stack overload error. 
+
+//e)
+argv[1] is a string which is trying to be assigned as an int which will cause an error. 
+
+(QUESTION 3)
+
+a)
+
+int binarySearch(int *array, int target, int min, int max)
+{
+	while (min <= max)
+	{
+		
+		int mid_point = min + ((max - min) / 2);
+
+		if (array[mid_point] == target)
+		{
+			return mid_point;
+		}
+		else if (array[mid_point] < target)
+		{
+			min = mid_point + 1;
+		}
+		else
+			max = mid_point - 1;
+	}
+
+	return -1;
+}
+
+b)
+
+ int binarySearch(int *array, int target, int min, int max)
+{
+	
+ 
+	if (min > max)
+		return -1;
+ 
+	int midpoint = min + ((max-min) / 2);
+ 
+	if (array[midpoint] > target)
+	{
+		return binarySearch(array, target, min, midpoint - 1);
+	}
+	else if (array[midpoint] < target)
+	{
+		return binarySearch(array, target, midpoint + 1, max);
+	}
+	else
+		return midpoint;
+}
